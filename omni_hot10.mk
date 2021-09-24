@@ -15,6 +15,8 @@
 # limitations under the License.
 #
 
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product-if-exists, $(SRC_TARGET_DIR)/product/embedded.mk)
@@ -31,6 +33,12 @@ $(call inherit-product, vendor/omni/config/gsm.mk)
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := hot10
 PRODUCT_NAME := omni_hot10
-PRODUCT_BRAND := Infinix
+PRODUCT_BRAND := infinix
 PRODUCT_MODEL := Infinix Hot 10
-PRODUCT_MANUFACTURER := Infinix
+PRODUCT_MANUFACTURER := infinix
+PRODUCT_RELEASE_NAME := Infinix Hot 10
+
+# Fastbootd
+PRODUCT_PACKAGES += \
+    android.hardware.fastboot@1.0-impl-mock \
+    android.hardware.fastboot@1.0-impl-mock.recovery
